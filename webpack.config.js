@@ -48,5 +48,6 @@ module.exports={
         exclude:/(node_modules|bower_components)/  // don't parse these files
       }
     ]
-  }
+  },
+  devtool:'cheap-module-eval-source-map'
 }
