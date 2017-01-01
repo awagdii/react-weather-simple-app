@@ -1,6 +1,17 @@
 // this file is to be  able to run webpack command without giving the source and distination js files  and  to add modules to be able to run webpack on JSX files
 module.exports={
-  entry:'./app/app.jsx', // this specify the code i am going to run webpack on
+  entry:[
+    'script!jquery/dist/jquery.min.js', // add jquery with  script loader to process the  file
+    'script!foundation-sites/dist/foundation.min.js',
+    './app/app.jsx' // this specify the code i am going to run webpack on
+  ],
+  externals:{ // in externals we  provide a set of  a key value pairs  key is the module name  and  the value is the var name
+              // we  want to be avaliable inside our external script files
+    jquery:'jQuery' // we  want jQuery with this name  to  be avaliable
+  },
+  plugin:[
+
+  ],
   output:{ // this is the info about the output file
     path:__dirname,   // this specify the current directory
     filename: './public/bundle.js'
@@ -14,7 +25,9 @@ module.exports={
       About:'app/components/About.jsx',
       Examples:'app/components/Examples.jsx',
       WeatherForm:'app/components/WeatherForm.jsx',
-      WeatherMessage:'app/components/WeatherMessage.jsx'
+      WeatherMessage:'app/components/WeatherMessage.jsx',
+      openWeatherMap:'app/api/openWeatherMap.jsx'
+
 
 
 
